@@ -29,8 +29,6 @@ curl -L git.io/nodebrew | perl - setup
 # PATH通す
 echo 'export PATH=$HOME/.nodebrew/current/bin:$PATH' >> ~/.bash_profile
 source ~/.bash_profile
-# 使用するNode.js(npm)のバージョン指定
-nodebrew install-binary v8.9.4 && nodebrew use v8.9.4
 
 # Goインストール
 apt install golang -y
