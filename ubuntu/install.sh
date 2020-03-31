@@ -6,7 +6,7 @@
 apt update && apt upgrade -y
 
 # 前提ソフトウェアのインストール
-apt install -y apt-transport-https ca-certificates curl software-properties-common python
+apt install -y apt-transport-https ca-certificates curl software-properties-common python npm
 
 # GPG 公開鍵のインストール
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
@@ -18,7 +18,7 @@ apt update && apt install -y docker-ce
 usermod -aG docker $(whoami)
 
 # Docker-composeインストール
-curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 # バイナリに対して実行権限付与
 chmod +x /usr/local/bin/docker-compose
 # Docker起動
