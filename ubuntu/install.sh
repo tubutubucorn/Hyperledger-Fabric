@@ -15,7 +15,7 @@ add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(
 # docker-ceのインストール
 apt update && apt install -y docker-ce
 # 一般ユーザでの実行
-sermod -aG docker $(whoami)
+usermod -aG docker $(whoami)
 
 # Docker-composeインストール
 curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -27,16 +27,17 @@ service docker start
 # Nodebrewインストール
 curl -L git.io/nodebrew | perl - setup
 # PATH通す
-export PATH=$HOME/.nodebrew/current/bin:$PATH >> ~/.bash_profile
+echo 'export PATH=$HOME/.nodebrew/current/bin:$PATH' >> ~/.bash_profile
+source ~/.bash_profile
 # 使用するNode.js(npm)のバージョン指定
 nodebrew install-binary v8.9.4 && nodebrew use v8.9.4
 
 # Goインストール
 apt install golang -y
 # PATH通す
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
-
+echo 'export GOPATH=$HOME/go' >> ~/.bash_profile
+echo 'export PATH=$PATH:$GOPATH/bin' >> ~/.bash_profile
+source ~/.bash_profile
 # サンプルプログラムのインストール
 curl -sSL http://bit.ly/2ysbOFE | bash -s
 cd fabric-samples/fabcar
