@@ -32,7 +32,7 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH >> ~/.bash_profile
 nodebrew install-binary v8.9.4 && nodebrew use v8.9.4
 
 # Goインストール
-apt install golang
+apt install golang -y
 # PATH通す
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
